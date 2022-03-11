@@ -1,0 +1,22 @@
+package CodeSr;
+
+import java.awt.event.ActionEvent;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import javax.swing.AbstractAction;
+import javax.swing.JButton;
+
+
+public class ActionBrowseSubCat extends AbstractAction{
+	
+
+	String[] categories;
+	LinkedList<JButton> browseButtons;
+	public ActionBrowseSubCat(String[] categories,LinkedList<JButton> browseButtons) {
+		this.browseButtons=browseButtons;
+		this.categories=categories;
+	}
+	
+
+}

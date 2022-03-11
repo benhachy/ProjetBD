@@ -1,0 +1,24 @@
+package CodeSr;
+import java.util.*;
+
+public class TestLogin {
+	public static void main(String[] args) {
+//        new Login();
+//		String[] list=new String[] {"Chaussure","T-shirt","Robes"};
+//		new BrowseCategories(list);
+//		Categories.browseCategoriesFilles("Haut");
+		
+		/**** page categories root   ****/
+//		String[] list=Categories.categoriesFilles("CHAUSSURES");
+//		new BrowseCategories(list);
+//		String zi="'zin'";
+//		char[] ch=zi.toCharArray();
+//		System.out.println(ch.toString());
+//		String[] list=Categories.hasProducts("JACKET");
+//		 System.out.println(list[1]);
+		String[] arr = new String[] {"haut","bas"};
+//        Iterator<String> it=arr.iterator();
+		String  result = String.join(",", arr);
+		System.out.println("("+result+")");
+	}
+}

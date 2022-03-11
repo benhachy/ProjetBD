@@ -1,0 +1,8 @@
+package CodeSr;
+
+public class Testtest {
+	public static void main(String[] args) {
+//		System.out.println(Test.facto(4));
+		System.out.print("("+String.join(",",new String[] {"25","8"}).substring(1)+")");
+	}
+}

@@ -1,0 +1,11 @@
+package CodeSr;
+
+
+public class TestLogin {
+	public static void main(String[] args) {
+      Login login=new Login();
+		System.out.println(login.getMail());
+		System.out.println(login.getPassword());
+	}
+
+}

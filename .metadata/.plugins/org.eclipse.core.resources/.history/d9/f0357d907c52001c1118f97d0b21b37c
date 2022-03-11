@@ -1,0 +1,15 @@
+package CodeSr;
+import java.sql.* ;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Connexion {
+	public static void main(String[] args) {
+		try{
+			DriverManager.registerDriver(
+			new Oracle.jdbc.driver.OracleDriver());
+			} catch (SQLException e) {
+			e.printStackTrace ();
+			}
+	}
+}

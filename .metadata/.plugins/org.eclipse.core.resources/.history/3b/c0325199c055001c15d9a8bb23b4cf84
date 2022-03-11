@@ -1,0 +1,5 @@
+package CodeSr;
+
+public class Categorie {
+	String Name;
+}

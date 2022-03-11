@@ -1,0 +1,7 @@
+package CodeSr;
+
+public class BrowsingCategorises {
+	public static void CreateBrowsingPage() {
+		
+	}
+}

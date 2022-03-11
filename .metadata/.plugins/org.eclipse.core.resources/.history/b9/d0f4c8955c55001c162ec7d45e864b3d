@@ -1,0 +1,15 @@
+package CodeSr;
+
+public class Test {
+	public static int facto(int n) {
+		int[] tab=new int[] {1,2};
+		if(n==1) return n;
+		if(n==0) return 1;
+		else {
+			for (int s:tab) {
+				return s*facto(s-1);
+			}
+			
+		}
+	}
+}

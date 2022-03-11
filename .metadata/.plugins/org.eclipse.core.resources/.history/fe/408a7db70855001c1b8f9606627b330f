@@ -1,0 +1,38 @@
+package CodeSr;
+
+import java.awt.event.ActionEvent;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+import javax.swing.AbstractAction;
+import javax.swing.JButton;
+
+
+public class ActionBrowseSubCat extends AbstractAction{
+	
+
+	String[] categories;
+	LinkedList<JButton> browseButtons;
+	public ActionBrowseSubCat(String[] categories,LinkedList<JButton> browseButtons) {
+		this.browseButtons=browseButtons;
+		this.categories=categories;
+	}
+	
+	 public void actionPerformed(ActionEvent e) {
+		 Iterator<JButton>  it= this.browseButtons.iterator();
+		 while(it.hasNext()) {
+			 JButton button=it.next();
+		 if(e.getSource()==button) {
+			 String categorie= button.getActionCommand();
+			 String[] categories=Categories.categoriesFilles(categorie);
+			 if(categories.length==0) {
+				 /* Categories qui n'a pas de filles creer page product */
+				 new Loogin();
+			 }
+			 else {
+				 /* appeler recursivement la fct */
+			 }
+		 }
+		 }
+	 }
+}

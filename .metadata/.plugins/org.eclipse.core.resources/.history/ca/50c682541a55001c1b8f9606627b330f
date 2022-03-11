@@ -1,0 +1,16 @@
+package CodeSr;
+
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
+
+
+public class ActionBrowseProducts extends AbstractAction{
+	public ActionBrowseProducts() {
+		
+	}
+	
+	 public void actionPerformed(ActionEvent e) {
+		 
+	 }
+}

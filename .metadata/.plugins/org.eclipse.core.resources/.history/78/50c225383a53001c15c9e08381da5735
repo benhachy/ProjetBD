@@ -1,0 +1,59 @@
+package CodeSr;
+import java.sql.*;
+  
+
+enum currrentWin { Login ,SignIn,Categorie,Next};
+
+public class Main {
+
+	static final String CONN_URL = "jdbc:oracle:thin:@oracle1.ensimag.fr:1521:oracle1";
+    static final String USER = "ettarraz";
+    static final String PASSWD = "ettarraz";
+    
+	public Main() {
+		
+		currrentWin window= currrentWin.Login;
+		if (window==currrentWin.Login) {
+			Login login=new Login();
+			if (! login.isLoginButtonClickedOn()) {
+				
+				System.out.println("hhhhhhhh");
+				/* pick up the mail and the password*/
+				String mail=login.getMail();
+				String password =login.getPassword();
+				System.out.println(mail);
+				System.out.println(password);
+				/* login if the mail and the password exist and print (" your mail is incorect else*/
+				
+				try {
+		        	// connexion à la base de données
+		        	
+		            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());   // Enregistrement du driver Oracle
+		            Connection connexion = DriverManager.getConnection(CONN_URL, USER, PASSWD);  // Etablissement de la connection
+
+		            
+		            // Creation de la requete
+		            PreparedStatement query=connexion.prepareStatement("SELECT * FROM IDENTIFICATION WHERE Mail=? AND MDP=?");
+		            query.setString(1, mail);
+		            query.setString(2, password);
+		            ResultSet res=query.executeQuery();
+		            System.out.println(res.getString(1));
+
+		             // Fermeture 
+		            res.close();
+		            query.close();
+		            connexion.close();
+
+		        } catch (SQLException e) {
+		            System.err.println("failed");
+		            e.printStackTrace(System.err);
+		        }
+				
+			}
+			
+			
+		}
+		
+       
+
+	}}

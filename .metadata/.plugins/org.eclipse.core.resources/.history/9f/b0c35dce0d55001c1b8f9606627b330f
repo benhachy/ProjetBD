@@ -1,0 +1,35 @@
+package CodeSr;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class BrowsingCategorises extends AbstractAction {
+	
+	String[] categories;
+	LinkedList<JButton> browseButtons;
+	public BrowsingCategorises(String[] categories,LinkedList<JButton> browseButtons) {
+		this.browseButtons=browseButtons;
+		this.categories=categories;
+	}
+	
+
+	public void actionPerformed(ActionEvent e) {
+		 Iterator<JButton>  it= this.browseButtons.iterator();
+		 while(it.hasNext()) {
+			 JButton button=it.next();
+		 if(e.getSource()==button) {
+			 String categorie= button.getActionCommand();
+			 String[] categories=Categories.categoriesFilles(categorie);
+			 JFrame frame =new BrowseCategories(categories);
+			 frame.setVisible(false);
+		 }
+		 }
+	 }
+
+public static void main(String args[]) {
+	String[] categories=Categories.categorieSRoot();
+	new BrowseCategories(categories);
+
+}
+}

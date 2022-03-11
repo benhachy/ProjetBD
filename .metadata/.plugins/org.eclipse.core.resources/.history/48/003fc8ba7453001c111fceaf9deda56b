@@ -1,0 +1,31 @@
+package CodeSr;
+import java.awt.Dimension;
+
+import javax.swing.*;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+
+
+public class Loogin {
+	public Loogin(){
+		JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(new Dimension(370, 600));
+        frame.setResizable(false);
+        BufferedImage image=null;
+        try {
+        	URL url=new URL("https://apicms.thestar.com.my/uploads/images/2021/02/23/1053702.jpg");
+        	image=ImageIO.read(url);
+            frame.setContentPane(new JLabel(new ImageIcon(image)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        frame.setVisible(true);
+        }
+	}
+		
+

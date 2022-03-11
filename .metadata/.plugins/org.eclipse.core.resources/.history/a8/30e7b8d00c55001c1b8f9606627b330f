@@ -1,0 +1,50 @@
+package CodeSr;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class BrowsingCategorises extends AbstractAction {
+	
+	String[] categories;
+	LinkedList<JButton> browseButtons;
+	public BrowsingCategorises(String[] categories,LinkedList<JButton> browseButtons) {
+		this.browseButtons=browseButtons;
+		this.categories=categories;
+	}
+	
+	
+//	public static void CreateBrowsingPage(String categorie) {
+//		/* recuperer de la base de données les categories filles de la categorie  */
+//		String[] categories=Categories.categoriesFilles(categorie);
+//		if(categories.length==0) {
+//			/* cas de base page product */
+//			/* à faire plus tard */
+////			new Loogin();
+//		}
+//		else {
+//			for(String cat:categories) {
+//				new BrowseCategories(categories);
+//				 CreateBrowsingPage(cat);
+//			}
+//			BrowsingCategorises.actionPerformed(ActionEvent e)
+//		}
+//	}
+	public void actionPerformed(ActionEvent e) {
+		 Iterator<JButton>  it= this.browseButtons.iterator();
+		 while(it.hasNext()) {
+			 JButton button=it.next();
+		 if(e.getSource()==button) {
+			 String categorie= button.getActionCommand();
+			 String[] categories=Categories.categoriesFilles(categorie);
+			 new BrowseCategories(categories);
+		 }
+		 }
+	 }
+
+public static void main(String args[]) {
+	String[] cats=Categories.categorieSRoot();
+	new BrowseCategories("cats");
+
+}
+}

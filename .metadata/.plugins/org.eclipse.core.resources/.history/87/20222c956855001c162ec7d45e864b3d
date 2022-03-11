@@ -1,0 +1,70 @@
+package CodeSr;
+import javax.swing.*;
+import java.util.*;
+
+import static javax.swing.JOptionPane.showMessageDialog;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class ActionBrowseProducts extends AbstractAction {
+	JFrame frame;
+	String[] categories;
+	LinkedList<JButton> browsButtonsProducts;
+	public ActionBrowseProducts(String[] categories,LinkedList<JButton> browsButtonsProducts,JFrame frame) {
+		this.browsButtonsProducts=browsButtonsProducts;
+		this.categories=categories;
+		this.frame=frame;
+	}
+	
+
+	public void actionPerformed(ActionEvent e) {
+		 Iterator<JButton>  it= this.browsButtonsProducts.iterator();
+		 while(it.hasNext()) {
+			 JButton button=it.next();
+		 if(e.getSource()==button) {
+			 String categorie= button.getActionCommand();
+			 if(Categories.inCategorie(categorie)) {
+				 String[] idProducts=Categories.hasProducts(categorie);
+				 /* appel page produit*/
+			 }
+			 else {
+				 String[] filles=Categories.categoriesFilles(categorie);
+				 if (filles.length==0) {
+					 /* category n'a pas de sous category et n'est pas de la derniere generation c'est à dire n'a pas de produit*/
+					 showMessageDialog(null,"This category has no products");
+				 }
+				 else {
+					 /* parcourir les sous categories et recuperer tout les produits par l'ordre énoncé dans le sujet*/
+					 
+				 }
+			 }
+			 String[] categories=Categories.categoriesFilles(categorie);
+//			 if(categories.length==0) {
+//				 /* check if categorie has product */
+//				 String[] products=Categories.hasProductsLastGeneration(categorie);
+//				 if(products.length==0) {
+//					 /* categorie qui n,a pas de produits*/
+//					 showMessageDialog(null, "This category has no products  ");
+//				 }
+//				 else {
+//					 showMessageDialog(null, "This category has no more subcategories Please check products  ");
+//				 }
+//				 
+//			 }
+			 else {
+	             this.frame.setVisible(false);
+				 JFrame frame =new BrowseCategories(categories);
+			 }
+
+		 }
+		 }
+	 }
+     
+	
+public static void main(String args[]) {
+	String[] categories=Categories.categorieSRoot();
+	new BrowseCategories(categories);
+
+}
+}

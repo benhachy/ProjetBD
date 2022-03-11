@@ -1,0 +1,25 @@
+package CodeSr;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class ActionGoToPersonalInfo extends AbstractAction {
+	
+	String Client[];
+	ProductsPage menu;
+	
+	public ActionGoToPersonalInfo (ProductsPage menu, String Client[]){
+		super ("My Info");
+		this.Client = Client;
+		this.menu = menu;
+	}
+	
+	public void actionPerformed (ActionEvent e) {
+		Client client=new Client(SignIn.mailConnectedUser);
+		PersonalInfo newPage = new PersonalInfo(client);
+
+		this.menu.setVisible(false);
+	}
+
+}

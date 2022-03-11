@@ -1,0 +1,39 @@
+package CodeSr;
+import java.sql.*;
+
+public class Main {
+	static final String CONN_URL = "jdbc:oracle:thin:@oracle1.ensimag.fr:1521:oracle1";
+    static final String USER = "ettarraz";
+    static final String PASSWD = "ettarraz";
+    
+	public Main() {
+        try {
+        	// connexion à la base de données
+        	
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());   // Enregistrement du driver Oracle
+            Connection connexion = DriverManager.getConnection(CONN_URL, USER, PASSWD);  // Etablissement de la connection
+            new Login();
+            // Creation de la requete
+            
+            Statement smt= connexion.createStatement();
+            ResultSet rset = smt.executeQuery("select * from IDENTIFICATION ");
+            System.out.println (rset);
+
+            while (rset.next ()) 
+            { 
+              System.out.println 
+              (rset.getString (1)+"   "+ rset.getString (2)); 
+            } 
+
+              // Fermeture 
+            rset.close();
+            smt.close();
+            connexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("failed");
+            e.printStackTrace(System.err);
+        }
+	}
+
+}

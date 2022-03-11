@@ -1,0 +1,12 @@
+package CodeSr;
+import java.util.*;
+
+public class TestLogin {
+	public static void main(String[] args) {
+//        new Login();
+     HashMap<String , String> M = new HashMap<>();
+     M.put("zi", "et");
+     System.out.println(M.get("zi"));
+	}
+
+}

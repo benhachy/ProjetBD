@@ -1,0 +1,20 @@
+package CodeSr;
+
+
+public class TestLogin {
+	public static void main(String[] args) {
+      Login login=new Login();
+		System.out.println(login.getMail());
+		System.out.println(login.getPassword());
+		System.out.println(login.isLoginButtonClickedOn());
+	    while  (!login.isLoginButtonClickedOn()) {
+	    	System.out.println("no clicked");
+	    	if(login.isLoginButtonClickedOn()) {
+	    		System.out.println("clicked");
+	    		login.setLoginButtonClickedOn(false);t
+	    		}
+			
+		}
+	}
+
+}

@@ -1,0 +1,64 @@
+package CodeSr;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Produit {
+	String name;
+	String description;
+	String URLImage;
+	String NOMCATEGORIE;
+	int idProduit;
+	int prixCourant;
+	String value;
+	String caracteristic;
+	boolean sold;
+	int nbOffers;
+	
+	static final String CONN_URL = "jdbc:oracle:thin:@oracle1.ensimag.fr:1521:oracle1";
+    static final String USER = "echarifs";
+    static final String PASSWD = "echarifs";
+	
+	public Produit(String ID) {
+		try {
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());   // Enregistrement du driver Oracle
+            Connection connexion = DriverManager.getConnection(CONN_URL, USER, PASSWD);  // Etablissement de la connection       
+            PreparedStatement query=connexion.prepareStatement("SELECT * FROM PRODUIT WHERE IDPRODUIT = ?");
+            query.setInt(1,Integer.valueOf(ID));
+            ResultSet result = query.executeQuery();
+            result.next();
+            this.name=result.getString(2);
+            this.description=result.getString(4);
+            this.URLImage=result.getString(5);
+            this.NOMCATEGORIE=result.getString(6);
+            this.prixCourant=result.getInt(3);
+            this.idProduit=result.getInt(1);
+            PreparedStatement query1=connexion.prepareStatement("SELECT COUNT(IDPRODUIT) FROM OFFRE WHERE IDPRODUIT = ?");
+            query1.setInt(1,Integer.valueOf(ID));
+            ResultSet res = query1.executeQuery();
+            res.next();
+            this.nbOffers=res.getInt(1);
+            
+
+            PreparedStatement query2=connexion.prepareStatement("SELECT IDPRODUIT FROM ACHAT WHERE IDPRODUIT = ?");
+            query2.setInt(1,Integer.valueOf(ID));
+            ResultSet reslt = query2.executeQuery();
+            this.sold=reslt.next();      
+            connexion.close(); 
+    } 
+    catch (SQLException e) {
+        System.err.println("failed");
+        e.printStackTrace(System.err);
+    }
+		
+	}
+	
+//	public static void main(String[] args) {
+//		Produit produit=new Produit("51");
+//		System.out.println(produit.description);
+//		
+//	}
+}

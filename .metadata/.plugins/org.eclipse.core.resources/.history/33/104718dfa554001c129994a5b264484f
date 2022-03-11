@@ -1,0 +1,15 @@
+package CodeSr;
+import java.util.*;
+
+public class TestLogin {
+	public static void main(String[] args) {
+//        new Login();
+//		String[] list=new String[] {"Chaussure","T-shirt","Robes"};
+//		new BrowseCategories(list);
+		
+		/**** page categories root   ****/
+		String[] list=Categories.BrowseCategorieSRoot();
+		System.out.print(list);
+		new BrowseCategories(list);
+	}
+}

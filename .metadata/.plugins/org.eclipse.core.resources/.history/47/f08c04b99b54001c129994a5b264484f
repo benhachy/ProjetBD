@@ -1,0 +1,56 @@
+package CodeSr;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Categories {
+//	try {
+//    	// connexion à la base de données
+//    	
+//        DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());   // Enregistrement du driver Oracle
+//        Connection connexion = DriverManager.getConnection(CONN_URL, USER, PASSWD);  // Etablissement de la connection
+//
+//        
+//        // Creation de la requete
+//        
+//        //nbr des comptes client
+//     
+//        PreparedStatement query1=connexion.prepareStatement("SELECT COUNT(NOM) FROM CLIENT");
+//        ResultSet res = query1.executeQuery();
+//        res.next();
+//        int accountNbr=res.getInt(1);
+////        System.out.println(accountNbr);
+//        String ID=String.valueOf(accountNbr+1);
+////        System.out.println(ID);
+//   
+//        // insert dans utilisateur 
+//        
+//        PreparedStatement query2=connexion.prepareStatement("INSERT INTO UTILISATEUR VALUES (?)");
+//        query2.setString(1,ID );
+//        query2.executeQuery();
+//        //insert dans client 
+//        PreparedStatement query3=connexion.prepareStatement("INSERT INTO CLIENT VALUES (?,?,?,?,?,?)");
+//        query3.setString(1, mail);
+//        query3.setString(2, password);
+//        query3.setString(3, nom);
+//        query3.setString(4, prenom);		            
+//        query3.setString(5, adresse);
+//        query3.setString(6,ID);
+//        query3.executeQuery();
+////
+////         // Fermeture 
+//        query1.close();
+//        query2.close();
+//        query3.close();
+//        connexion.close();
+//        this.setVisible(false);
+//        new Login();
+//
+//    } catch (SQLException e) {
+//        System.err.println("failed");
+//        e.printStackTrace(System.err);
+//    }
+}

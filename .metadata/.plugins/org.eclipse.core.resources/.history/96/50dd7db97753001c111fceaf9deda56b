@@ -1,0 +1,67 @@
+package CodeSr;
+import javax.swing.*;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import java.awt.image.BufferedImage;
+import java.net.URL; 
+import java.awt.*;  
+  
+
+public class Loogin {
+	public Loogin(){
+		JFrame frame=new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(new Dimension(500, 600));
+        frame.setVisible(true);
+        
+        /*  user mail*/
+        JLabel mailLabel = new JLabel("Mail");
+        JTextField MailTextField = new JTextField();
+        mailLabel.setBounds(50, 150, 100, 30);
+        MailTextField.setBounds(150, 150, 150, 30);
+        MailTextField.setBackground(new Color(250,250,250,100));
+  
+       
+        
+        
+        /* passewoord */
+        
+        JLabel passwordLabel = new JLabel("Password");
+        JPasswordField PasswordTextFeild = new JPasswordField();
+        passwordLabel.setBounds(50, 220, 100, 30);
+        PasswordTextFeild.setBounds(150, 220, 150, 30);
+        PasswordTextFeild.setBackground(new Color(250,250,250,100));
+
+        
+        /* LOGGIN BUTTON */
+        JButton loginButton = new JButton("Login");
+        loginButton.setBounds(150, 300, 100, 30);
+        loginButton.setBackground(new Color(128,0,0,150));
+        loginButton.setForeground(Color.black);
+
+        
+        
+        /* Sign in BUTTON */
+        JButton SignInButton = new JButton("Sign in");
+        SignInButton.setBounds(150, 350, 100, 30);
+        SignInButton.setBackground(new Color(128,0,0,150));
+        SignInButton.setForeground(Color.black);
+
+        JPanel panel = new JPanel(new GridLayout(3, 1));
+        
+        
+//        BufferedImage image=null;
+//        try {
+//        	URL url=new URL("https://apicms.thestar.com.my/uploads/images/2021/02/23/1053702.jpg");
+//        	image=ImageIO.read(url);
+//            frame.setContentPane(new JLabel(new ImageIcon(image)));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        
+        
+        }
+	}
+		
+

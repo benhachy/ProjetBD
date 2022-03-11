@@ -1,0 +1,34 @@
+package CodeSr;
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+
+public class ActionGoToRecs extends AbstractAction {
+	int indice;
+	String categories[];
+	ProductsPage menu;
+	
+	public ActionGoToRecs(ProductsPage menu, int i) {
+		this.indice = i;
+		this.categories = categories;
+		this.menu = menu;
+	}
+	
+	public void actionPerformed (ActionEvent e) {
+		if (this.indice == 0) {
+			new BrowseCategories(this.categories);
+		}
+		if (this.indice == 1) {
+			new PersonalRecs(this.categories);
+		}
+		if (this.indice ==2) {
+			new TrendingRecs(this.categories);
+		}
+		
+		this.menu.setVisible(false);
+	}
+	
+}

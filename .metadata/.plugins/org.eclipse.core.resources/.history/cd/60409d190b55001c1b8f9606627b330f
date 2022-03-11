@@ -1,0 +1,31 @@
+package CodeSr;
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class BrowsingCategorises {
+	public static void CreateBrowsingPage(String categorie) {
+		/* recuperer de la base de données les categories filles de la categorie  */
+		String[] categories=Categories.categoriesFilles(categorie);
+		if(categories.length==0) {
+			/* cas de base page product */
+			/* à faire plus tard */
+			new Loogin();
+		}
+		else {
+			for(String cat:categories) {
+				new BrowseCategories(categories);
+				 CreateBrowsingPage(cat);
+			}
+			
+		}
+	}
+
+
+public static void main(String args[]) {
+//	String cats[]= {"cat1kdddddddd", "cat2", "cat3", "cat4", "cat5"};
+   	BrowsingCategorises.CreateBrowsingPage("ACCESSOIRES");
+
+}
+}

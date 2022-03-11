@@ -1,0 +1,13 @@
+package CodeSr;
+
+public class Produit {
+	String name;
+	String intitulé;
+	String URLImage;
+	int prixCourant;
+	boolean sold;
+	int nbOffers;
+	public Produit() {
+		
+	}
+}

@@ -1,0 +1,10 @@
+package CodeSr;
+import java.util.*;
+
+public class TestLogin {
+	public static void main(String[] args) {
+//        new Login();
+		String[] list=new String[] {"chaussure","T-shirt","Robes"};
+		new BrowseCategories(list);
+	}
+}

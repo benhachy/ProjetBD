@@ -1,0 +1,17 @@
+package CodeSr;
+//import java.sql.* ;
+import java.sql.SQLException;
+
+
+public class Connexion {
+	public static void main(String[] args) throws SQLException {
+		try {
+			   Class.forName("oracle.jdbc.driver.OracleDriver");
+			}
+			catch(ClassNotFoundException ex) {
+			   System.out.println("Error: unable to load driver class!");
+			   System.exit(1);
+			}
+
+	}
+}

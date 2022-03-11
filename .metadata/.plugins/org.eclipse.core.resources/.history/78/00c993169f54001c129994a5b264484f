@@ -1,0 +1,43 @@
+package CodeSr;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Categories {
+	
+	static final String CONN_URL = "jdbc:oracle:thin:@oracle1.ensimag.fr:1521:oracle1";
+    static final String USER = "echarifs";
+    static final String PASSWD = "echarifs";
+	
+    public static void BrowseCategorieSRoot() {
+    	
+    	/*** récuperer de la base des données les catégories ROOT ***/
+    	try {
+    	   	
+            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());   // Enregistrement du driver Oracle
+            Connection connexion = DriverManager.getConnection(CONN_URL, USER, PASSWD);  // Etablissement de la connection       
+            PreparedStatement query=connexion.prepareStatement("SELECT DISTINCT NOMMERE FROM HIERARCHIE WHERE NOMMERE NOT IN (SELECT NOMFILLE FROM HIERARCHIE)");
+            ResultSet result = query.executeQuery();
+            // nombre des categories root est 
+            PreparedStatement query1=connexion.prepareStatement("SELECT  COUNT(NOMMERE) FROM ( SELECT DISTINCT NOMMERE FROM HIERARCHIE WHERE NOMMERE NOT IN (SELECT NOMFILLE FROM HIERARCHIE))");
+            ResultSet res = query1.executeQuery();
+            res.next();
+            int categoriesRootNbr=res.getInt(1);
+            String[] categories=new String[categoriesRootNbr];
+            for(int i=0;i<categoriesRootNbr;i++){
+            	categories[i]=result.getString(i);
+            }
+            System.out.println("hhhhhhhhhhhhh");
+            System.out.println(categories.toString());
+        } 
+        catch (SQLException e) {
+            System.err.println("failed");
+            e.printStackTrace(System.err);
+        }
+    }
+	
+    
+}
